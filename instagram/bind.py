@@ -119,7 +119,7 @@ def bind_method(**config):
                         api_responses = self.root_class.object_from_dictionary(data)
                 elif self.response_type == 'empty':
                     pass
-                return api_responses, content_obj.get('pagination', {}).get('next_url')
+                return api_responses, content_obj.get('pagination', {}) # Why wouldn't we want all of this? .get('next_url')
             else:
                 raise InstagramAPIError(status_code, content_obj['meta']['error_type'], content_obj['meta']['error_message'])
 
